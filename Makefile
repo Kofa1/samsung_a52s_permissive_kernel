@@ -369,6 +369,7 @@ include scripts/subarch.include
 # Default value for CROSS_COMPILE is not to prefix executables
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 ARCH		?= $(SUBARCH)
+#CROSS_COMPILE   ?= ../PLATFORM/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -432,7 +433,13 @@ READELF		= llvm-readelf
 OBJSIZE		= llvm-size
 STRIP		= llvm-strip
 else
+<<<<<<< HEAD
 REAL_CC		= $(CROSS_COMPILE)gcc
+=======
+#CC		= $(CROSS_COMPILE)gcc
+CC    ?= $(srctree)/toolchain/clang/host/linux-x86/clang-r383902/bin/clang
+#CC    = ../PLATFORM/prebuilts/clang/host/linux-x86/clang-r383902/bin/clang
+>>>>>>> 35c364481af3 (makefile: Do not use samsung default toolchain path)
 LD		= $(CROSS_COMPILE)ld
 AR		= $(CROSS_COMPILE)ar
 NM		= $(CROSS_COMPILE)nm
